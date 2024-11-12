@@ -13,9 +13,11 @@ function Player:initialize(x, y, startFrame, endFrame, spriteRow, spriteWidth, s
 	self.acceleration = 4000 -- 200/4000 = 0.05s to speed up to max
 	self.friction = 3500
 	self.gravity = 1500
-	self.jumpFactor = -300
+	self.jumpFactor = -250
 
 	self.grounded = false
+
+	self.moved = false
 
 	self.physics = {}
 	self.physics.body = love.physics.newBody(world, self.x, self.y, "dynamic")
@@ -40,6 +42,7 @@ function Player:move(dt)
 			else
 				self.xVel = self.maxSpeed
 			end
+			self.moved = true
 		end
 	elseif love.keyboard.isDown("a", "left") then
 		if self.xVel > -self.maxSpeed then
@@ -49,6 +52,7 @@ function Player:move(dt)
 				self.xVel = -self.maxSpeed
 			end
 		end
+		self.moved = true
 	else
 		self:applyFriction(dt)
 	end
@@ -84,18 +88,25 @@ function Player:syncPhysics()
 end
 
 function Player:beginContact(a, b, collision)
-	if self.grounded == true then return end
+    if self.grounded == true then return end
 
-	local nx, ny = collision:getNormal()
-	if a == self.physics.fixture then
-		if ny > 0 then
-			self:land(collision)
-		end
-	elseif b == self.physics.fixture then
-		if ny < 0 then
-			self:land(collision)
-		end
-	end
+    local nx, ny = collision:getNormal()
+    local fixture, otherFixture = a, b
+
+    if b == self.physics.fixture then
+        fixture, otherFixture = b, a
+    end
+
+    -- Check if the player lands on a "death" object
+    if otherFixture:getUserData() == "death" then
+        self:die()  -- Handle player death
+    elseif ny > 0 then
+        self:land(collision)
+    end
+end
+
+function Player:die()
+	GameOverFlag = true
 end
 
 function Player:land(collision)

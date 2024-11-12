@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="18" tilewidth="8" tileheight="8" infinite="0" nextlayerid="4" nextobjectid="25">
+ <editorsettings>
+  <export target="level_2.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" source="tiles.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="20" height="18">
+  <data encoding="csv">
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,11,0,0,13,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,12,0,0,0,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,4,0,0,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,0,0,5,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,0,0,0,13,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,0,0,0,14,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,15,15,3,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+</data>
+ </layer>
+ <objectgroup color="#ff0000" id="2" name="solid" tintcolor="#ff0000">
+  <object id="19" x="48.7516" y="56.1907" width="23.4473" height="42.6075">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="20" x="34.5074" y="13.7488" width="23.4473" height="42.6075">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="22" x="44.3911" y="-2.67558" width="45.6857" height="42.6075">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="21" x="87.9957" y="32.2081" width="23.4473" height="47.6947">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="23" x="102.095" y="78.2837" width="23.4473" height="29.6714">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="24" x="87.8383" y="96.4523" width="22.5873" height="29.6714">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ff00" id="3" name="death">
+  <properties>
+   <property name="collidable" type="bool" value="false"/>
+  </properties>
+  <object id="18" x="71.8819" y="100.587" width="16.1162" height="3.85525">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

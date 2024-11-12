@@ -8,6 +8,29 @@
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "level_2.tmx": {
+            "expandedObjectLayers": [
+                2,
+                3
+            ],
+            "scale": 6.4269,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 80.59873344847438,
+                "y": 79.04277334329149
+            }
+        },
+        "map.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 4.7048,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 87.35759224621664,
+                "y": 87.99523890494815
+            }
+        }
     },
     "last.exportedFilePath": "/Users/henryfielding/Documents/GitHub/agwan/game/assets/map",
     "last.imagePath": "/Users/henryfielding/Documents/GitHub/agwan/game/assets",

@@ -8,11 +8,11 @@ LevelState = Class('LevelState', State)
 
 
 function LevelState:initialize()
-	self.map = STI("assets/map/map.lua", {"box2d"})
+	self.map = STI("assets/map/level_1.lua", {"box2d"})
 	self.world = love.physics.newWorld(0, 0)
 
 	self.player = Player:new(
-		7 * TileWidth,
+		6 * TileWidth,
 		50,
 		1,
 		1,
@@ -30,7 +30,20 @@ function LevelState:initialize()
     )
 
 	self.map:box2d_init(self.world)
-	self.map.layers.solid.visible = false 
+
+	-- Set user data for objects on the death layer
+    for _, layer in ipairs(self.map.layers) do
+        if layer.name == "death" then
+            for _, object in ipairs(layer.objects) do
+                if object.fixture then
+                    object.fixture:setUserData("death")
+                end
+            end
+        end
+    end
+
+	self.map.layers.solid.visible = false
+	self.map.layers.death.visible = false
 
 end
 
@@ -63,7 +76,11 @@ function LevelState:draw()
     love.graphics.push()
     love.graphics.scale(ScalingFactor, ScalingFactor)
     love.graphics.draw(Bg)
-	self.map:draw(0, 0, ScalingFactor, ScalingFactor)
+	--self.map:draw(0, 0, ScalingFactor, ScalingFactor)
+	self.map:drawLayer(self.map.layers["ground"])
+	if not self.player.moved then
+		self.map:drawLayer(self.map.layers["hidden"])
+	end
 
     -- Draw all entities
     for _, value in ipairs(Entities) do

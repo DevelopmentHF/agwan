@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="18" tilewidth="8" tileheight="8" infinite="0" nextlayerid="5" nextobjectid="32">
+ <editorsettings>
+  <export target="level_1.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" source="tiles.tsx"/>
+ <layer id="1" name="ground" width="20" height="18">
+  <data encoding="csv">
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,6,11,0,0,0,0,0,13,5,1,1,1,1,1,
+1,1,1,1,1,11,0,0,0,0,0,0,0,0,0,13,1,1,1,1,
+1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,
+1,1,1,1,1,12,0,0,0,0,0,0,0,0,0,14,1,1,1,1,
+1,1,1,1,1,1,4,0,0,0,0,0,0,0,3,1,1,1,1,1,
+1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,
+1,1,1,1,1,1,1,15,15,15,15,15,15,15,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+</data>
+ </layer>
+ <layer id="4" name="hidden" width="20" height="18">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,16,16,16,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup color="#ff0000" id="2" name="solid" tintcolor="#ff0000">
+  <object id="19" x="32.5234" y="79.8295" width="23.4473" height="42.6075">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="26" x="18.2089" y="37.6469" width="23.4473" height="42.6075">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="27" x="126.199" y="37.6469" width="23.4473" height="42.6075">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="28" x="37.8435" y="12.7765" width="17.3388" height="42.6075">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="29" x="112.237" y="12.7765" width="17.3388" height="42.6075">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="30" x="55.5146" y="37.8651" width="57.4806" height="10.1014">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="31" x="71.9405" y="79.9693" width="24.0206" height="5.29594">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="25" x="111.146" y="79.9704" width="23.4473" height="42.6075">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ff00" id="3" name="death">
+  <properties>
+   <property name="collidable" type="bool" value="false"/>
+  </properties>
+  <object id="18" x="55.0834" y="101.241" width="57.1307" height="3.85525">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
