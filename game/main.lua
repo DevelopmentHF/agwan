@@ -21,7 +21,7 @@ function love.load()
 	local music = love.audio.newSource("assets/sfx/HerdingPidgeons.mp3", "stream")
 	music:play()
 	music:setLooping(true)
-	music:setVolume(0.7)
+	music:setVolume(0.0) -- MUSIC TURNED OFF FOR NOW
 
     Entities = {}
     UIElements = {}
@@ -47,5 +47,9 @@ end
 function love.keypressed(key)
     if key == "escape" then
         love.event.quit()  -- Close the game
+    end
+
+	if stateManager.currentState.player then
+        stateManager.currentState.player:keypressed(key)
     end
 end
