@@ -4,6 +4,10 @@ function Entity:initialize(x, y, startFrame, endFrame, spriteRow, spriteWidth, s
 	self.x = x
 	self.y = y
 
+	self.startFrame = startFrame
+	self.endFrame = endFrame
+	self.animationDuration = animationDuration
+
 	self.spriteWidth = spriteWidth
 	self.spriteHeight = spriteHeight
 	

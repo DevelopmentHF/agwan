@@ -8,6 +8,14 @@
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "level_1.tmx": {
+            "scale": 7.5962,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 87.80706142544958,
+                "y": 74.3792949106132
+            }
+        },
         "level_2.tmx": {
             "expandedObjectLayers": [
                 2,

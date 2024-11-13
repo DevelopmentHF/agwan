@@ -11,24 +11,30 @@ function LevelState:initialize()
 	self.map = STI("assets/map/level_1.lua", {"box2d"})
 	self.world = love.physics.newWorld(0, 0)
 
-	-- find spawn point of player
-	local spawnX, spawnY
+	-- load important object level details from Tiled	
 	for _, object in pairs(self.map.objects) do
+		-- spawn point
 		if object.name == "spawn" then
-			spawnX = object.x
-			spawnY = object.y 
+			self.spawnX = object.x
+			self.spawnY = object.y
+		end
+
+		-- level end point
+		if object.name == "end" then
+			self.endX = object.x
+			self.endY = object.y
 		end
 	end
 
 	self.player = Player:new(
-		spawnX,
-		spawnY,
+		self.spawnX,
+		self.spawnY,
 		1,
-		1,
+		8,
 		8,
 		TileWidth,
 		TileHeight-2,
-		0.1,
+		0.05,
 		self.world
 	)
 
@@ -40,20 +46,22 @@ function LevelState:initialize()
 
 	self.map:box2d_init(self.world)
 
-	-- Set user data for objects on the death layer
-    for _, layer in ipairs(self.map.layers) do
-        if layer.name == "death" then
-            for _, object in ipairs(layer.objects) do
-                if object.fixture then
-                    object.fixture:setUserData("death")
-                end
-            end
-        end
-    end
-
 	self.map.layers.solid.visible = false
 	self.map.layers.death.visible = false
-
+	
+	DeathZones = {}
+	-- find all tiles which the player should die at
+	for _, object in pairs(self.map.objects) do
+		-- death zone 
+		if object.name == "death" then
+			table.insert(DeathZones, {
+				x = object.x,
+            	y = object.y,
+				width = object.width,
+				height = object.height
+			})
+		end
+	end
 end
 
 function LevelState:enter()
@@ -95,7 +103,7 @@ function LevelState:draw()
     for _, value in ipairs(Entities) do
         value:draw()
     end
-	
+
     love.graphics.pop()
 
 end

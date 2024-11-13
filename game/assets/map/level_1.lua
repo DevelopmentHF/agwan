@@ -10,7 +10,7 @@ return {
   tilewidth = 8,
   tileheight = 8,
   nextlayerid = 6,
-  nextobjectid = 33,
+  nextobjectid = 35,
   properties = {},
   tilesets = {
     {
@@ -124,7 +124,7 @@ return {
       type = "objectgroup",
       draworder = "topdown",
       id = 5,
-      name = "spawn",
+      name = "level",
       class = "",
       visible = true,
       opacity = 1,
@@ -141,6 +141,19 @@ return {
           shape = "rectangle",
           x = 48.1542,
           y = 71.9841,
+          width = 1.63354,
+          height = 1.71076,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 33,
+          name = "end",
+          type = "",
+          shape = "rectangle",
+          x = 120.822,
+          y = 74.222,
           width = 1.63354,
           height = 1.71076,
           rotation = 0,
@@ -255,6 +268,21 @@ return {
           }
         },
         {
+          id = 34,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 55.0749,
+          y = 104.99,
+          width = 57.4806,
+          height = 10.1014,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
           id = 31,
           name = "",
           type = "",
@@ -314,7 +342,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["collidable"] = false
           }
         }
       }
