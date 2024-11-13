@@ -7,8 +7,12 @@ local STI = require("sti")
 LevelState = Class('LevelState', State)
 
 
-function LevelState:initialize()
-	self.map = STI("assets/map/level_1.lua", {"box2d"})
+function LevelState:initialize(number)
+	self.number = number
+end
+
+function LevelState:enter()
+	self.map = STI(string.format("assets/map/level_%d.lua", self.number), {"box2d"})
 	self.world = love.physics.newWorld(0, 0)
 
 	-- load important object level details from Tiled	
@@ -21,8 +25,12 @@ function LevelState:initialize()
 
 		-- level end point
 		if object.name == "end" then
-			self.endX = object.x
-			self.endY = object.y
+			EndZone = {
+				x = object.x,
+				y = object.y,
+				width = object.width,
+				height = object.height
+			}
 		end
 	end
 
@@ -62,15 +70,10 @@ function LevelState:initialize()
 			})
 		end
 	end
-end
-
-function LevelState:enter()
 	Entities = {}
 	
 	-- load player
 	table.insert(Entities, self.player)
-
-
 end
 
 function LevelState:update(dt)
@@ -80,11 +83,6 @@ function LevelState:update(dt)
 	-- Update all entities
     for _, value in ipairs(Entities) do
 		value:update(dt)
-    end
-
-    -- Switch to GameOverState 
-    if GameOverFlag then
-        stateManager:switch(EndState:new())
     end
 end
 

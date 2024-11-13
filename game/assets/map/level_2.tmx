@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="18" tilewidth="8" tileheight="8" infinite="0" nextlayerid="4" nextobjectid="25">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="18" tilewidth="8" tileheight="8" infinite="0" nextlayerid="6" nextobjectid="30">
  <editorsettings>
   <export target="level_2.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="tiles.tsx"/>
- <layer id="1" name="Tile Layer 1" width="20" height="18">
+ <layer id="1" name="ground" width="20" height="18">
   <data encoding="csv">
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -26,8 +26,39 @@
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 </data>
  </layer>
+ <layer id="5" name="hidden" width="20" height="18">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="4" name="level">
+  <object id="27" name="spawn" x="60.408" y="51.2395" width="1.63354" height="1.71076"/>
+  <object id="28" name="end" x="96.3433" y="84.835" width="4.24702" height="9.80714"/>
+ </objectgroup>
  <objectgroup color="#ff0000" id="2" name="solid" tintcolor="#ff0000">
   <object id="19" x="48.7516" y="56.1907" width="23.4473" height="42.6075">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="29" x="71.9574" y="104.354" width="15.9669" height="4.32566">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>
@@ -42,7 +73,7 @@
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="21" x="87.9957" y="32.2081" width="23.4473" height="47.6947">
+  <object id="21" x="88.1718" y="32.0321" width="23.4473" height="47.6947">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>
@@ -62,9 +93,9 @@
   <properties>
    <property name="collidable" type="bool" value="false"/>
   </properties>
-  <object id="18" x="71.8819" y="100.587" width="16.1162" height="3.85525">
+  <object id="18" name="death" x="71.8819" y="100.587" width="16.1162" height="3.85525">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>

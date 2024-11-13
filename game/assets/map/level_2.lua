@@ -9,8 +9,8 @@ return {
   height = 18,
   tilewidth = 8,
   tileheight = 8,
-  nextlayerid = 4,
-  nextobjectid = 25,
+  nextlayerid = 6,
+  nextobjectid = 30,
   properties = {},
   tilesets = {
     {
@@ -51,7 +51,7 @@ return {
       width = 20,
       height = 18,
       id = 1,
-      name = "Tile Layer 1",
+      name = "ground",
       class = "",
       visible = true,
       opacity = 1,
@@ -83,6 +83,86 @@ return {
       }
     },
     {
+      type = "tilelayer",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 18,
+      id = 5,
+      name = "hidden",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      encoding = "lua",
+      data = {
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 4,
+      name = "level",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 27,
+          name = "spawn",
+          type = "",
+          shape = "rectangle",
+          x = 60.408,
+          y = 51.2395,
+          width = 1.63354,
+          height = 1.71076,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 28,
+          name = "end",
+          type = "",
+          shape = "rectangle",
+          x = 96.3433,
+          y = 84.835,
+          width = 4.24702,
+          height = 9.80714,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
       type = "objectgroup",
       draworder = "topdown",
       id = 2,
@@ -106,6 +186,21 @@ return {
           y = 56.1907,
           width = 23.4473,
           height = 42.6075,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 29,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 71.9574,
+          y = 104.354,
+          width = 15.9669,
+          height = 4.32566,
           rotation = 0,
           visible = true,
           properties = {
@@ -147,8 +242,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 87.9957,
-          y = 32.2081,
+          x = 88.1718,
+          y = 32.0321,
           width = 23.4473,
           height = 47.6947,
           rotation = 0,
@@ -207,7 +302,7 @@ return {
       objects = {
         {
           id = 18,
-          name = "",
+          name = "death",
           type = "",
           shape = "rectangle",
           x = 71.8819,
@@ -217,7 +312,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["collidable"] = false
           }
         }
       }

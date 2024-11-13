@@ -50,6 +50,8 @@ function Player:update(dt)
 		self:move(dt)
 		if self:inDeathZone() then
 			self:die()
+		elseif self:inEndZone() then
+			stateManager:switchToNextLevel()
 		end
 	end
 end
@@ -125,14 +127,23 @@ end
 -- check whether the player is within a death bounded area 
 function Player:inDeathZone()
 	for _, zone in pairs(DeathZones) do
-		if self.x < zone.x + zone.width and
-		   self.x + self.width > zone.x and
-		   self.y < zone.y + zone.height and
-		   self.y + self.height/2 > zone.y then
+		-- Check if the player's x and y are within the bounds of the zone
+		if self.x > zone.x and self.x < zone.x + zone.width and
+		   self.y > zone.y and self.y < zone.y + zone.height then
 			return true
 		end
 	end
 	return false -- Player is safe
+end
+
+function Player:inEndZone()
+	local zone = EndZone
+	-- Check if the player's x and y are within the bounds of the end zone
+	if self.x > zone.x and self.x < zone.x + zone.width and
+	   self.y > zone.y and self.y < zone.y + zone.height then
+		return true
+	end
+	return false -- Player is not in the end zone
 end
 
 -- Play death anim and stuff

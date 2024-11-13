@@ -9,23 +9,29 @@
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "level_1.tmx": {
-            "scale": 7.5962,
+            "expandedObjectLayers": [
+                2,
+                5,
+                3
+            ],
+            "scale": 6.2245,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 87.80706142544958,
-                "y": 74.3792949106132
+                "x": 89.00313278174954,
+                "y": 65.22612258012693
             }
         },
         "level_2.tmx": {
             "expandedObjectLayers": [
                 2,
+                4,
                 3
             ],
-            "scale": 6.4269,
-            "selectedLayer": 0,
+            "scale": 6.2872,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 80.59873344847438,
-                "y": 79.04277334329149
+                "x": 90.02417610383002,
+                "y": 65.21185901514188
             }
         },
         "map.tmx": {
