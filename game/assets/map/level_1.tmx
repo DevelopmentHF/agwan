@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="18" tilewidth="8" tileheight="8" infinite="0" nextlayerid="5" nextobjectid="32">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="18" tilewidth="8" tileheight="8" infinite="0" nextlayerid="6" nextobjectid="33">
  <editorsettings>
   <export target="level_1.lua" format="lua"/>
  </editorsettings>
@@ -48,6 +48,9 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="5" name="spawn">
+  <object id="32" name="spawn" x="48.1542" y="71.9841" width="1.63354" height="1.71076"/>
+ </objectgroup>
  <objectgroup color="#ff0000" id="2" name="solid" tintcolor="#ff0000">
   <object id="19" x="32.5234" y="79.8295" width="23.4473" height="42.6075">
    <properties>
@@ -94,7 +97,7 @@
   <properties>
    <property name="collidable" type="bool" value="false"/>
   </properties>
-  <object id="18" x="55.0834" y="101.241" width="57.1307" height="3.85525">
+  <object id="18" name="death" x="55.0834" y="101.241" width="57.1307" height="3.85525">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>

@@ -11,9 +11,18 @@ function LevelState:initialize()
 	self.map = STI("assets/map/level_1.lua", {"box2d"})
 	self.world = love.physics.newWorld(0, 0)
 
+	-- find spawn point of player
+	local spawnX, spawnY
+	for _, object in pairs(self.map.objects) do
+		if object.name == "spawn" then
+			spawnX = object.x
+			spawnY = object.y 
+		end
+	end
+
 	self.player = Player:new(
-		6 * TileWidth,
-		50,
+		spawnX,
+		spawnY,
 		1,
 		1,
 		8,

@@ -9,8 +9,8 @@ return {
   height = 18,
   tilewidth = 8,
   tileheight = 8,
-  nextlayerid = 5,
-  nextobjectid = 32,
+  nextlayerid = 6,
+  nextobjectid = 33,
   properties = {},
   tilesets = {
     {
@@ -118,6 +118,35 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 5,
+      name = "spawn",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 32,
+          name = "spawn",
+          type = "",
+          shape = "rectangle",
+          x = 48.1542,
+          y = 71.9841,
+          width = 1.63354,
+          height = 1.71076,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
       }
     },
     {
@@ -275,7 +304,7 @@ return {
       objects = {
         {
           id = 18,
-          name = "",
+          name = "death",
           type = "",
           shape = "rectangle",
           x = 55.0834,
