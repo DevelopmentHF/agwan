@@ -31,10 +31,13 @@ function Player:initialize(x, y, startFrame, endFrame, spriteRow, spriteWidth, s
 	self.physics.body:setFixedRotation(true) -- dont rotate
 	self.physics.shape = love.physics.newRectangleShape(self.width, self.height)
 	self.physics.fixture = love.physics.newFixture(self.physics.body, self.physics.shape)
+
+	self.dt = 0
 end
 
 function Player:update(dt)
 	Entity.update(self, dt)
+	self.dt = dt
 
 	-- special death update logic
 	if self.isDying then
@@ -123,13 +126,14 @@ function Player:beginContact(a, b, collision)
         local object = otherFixture:getUserData()
         if object and object.temp then
             print("Player is on a temporary platform. It should break.")
+			-- Mark the platform as one the player is currently standing on
+            object.standingOn = true  -- Mark that the player is standing on it
 			
 			-- for some reason with manually platform creation temp platform normals are inverted to regular
 			-- collidable objects straight from tiled
 			if ny < 0 then
 				self:land(collision)
 			end
-            -- Example: object:destroy() or object:markForDestruction() or similar
         end
     end
 
@@ -180,6 +184,26 @@ function Player:respawn()
 	self.deathTimer = self.animationDuration * ((self.endFrame - self.startFrame) + 1)
 	self.physics.body:setPosition(self.spawnX, self.spawnY)
 	self.physics.body:setLinearVelocity(0, 0)
+
+	-- reset temporary platforms too
+	for _, object in pairs(Map.objects) do
+		if object.name == "temp" then
+			-- Ensure the object has a fixture and userData
+			if object.fixture then
+				local userData = object.fixture:getUserData()
+
+				if userData then
+					-- Reset the userData properties
+					userData.standingOn = false  -- Reset the standingOn state
+					userData.timer = 0           -- Reset the timer
+					userData.collidable = true   -- Ensure the platform is collidable
+
+					-- Set the fixture as non-sensor (collidable) if it was a sensor
+					object.fixture:setSensor(false)
+				end
+			end
+		end
+	end
 
 	-- pause death anim
 	self.animation:gotoFrame(1) -- Restart the animation from the first frame

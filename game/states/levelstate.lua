@@ -12,11 +12,11 @@ function LevelState:initialize(number)
 end
 
 function LevelState:enter()
-	self.map = STI(string.format("assets/map/level_%d.lua", self.number), {"box2d"})
+	Map = STI(string.format("assets/map/level_%d.lua", self.number), {"box2d"})
 	self.world = love.physics.newWorld(0, 0)
 
 	-- load important object level details from Tiled	
-	for _, object in pairs(self.map.objects) do
+	for _, object in pairs(Map.objects) do
 		-- spawn point
 		if object.name == "spawn" then
 			self.spawnX = object.x
@@ -43,7 +43,8 @@ function LevelState:enter()
 
             -- marking it as a temporary platform
             if object.name == "temp" then
-                fixture:setUserData({ temp = true, collidable = true })  -- Set custom user data
+                fixture:setUserData({ temp = true, collidable = true, timer = 0, standingOn = false})
+				object.fixture = fixture
 				print("created temp")
             end
         end	
@@ -67,14 +68,14 @@ function LevelState:enter()
         function(a, b, collision) self.player:endContact(a, b, collision) end
     )
 
-	self.map:box2d_init(self.world)
+	Map:box2d_init(self.world)
 
-	self.map.layers.solid.visible = false
-	self.map.layers.death.visible = false
+	Map.layers.solid.visible = false
+	Map.layers.death.visible = false
 	
 	DeathZones = {}
 	-- find all tiles which the player should die at
-	for _, object in pairs(self.map.objects) do
+	for _, object in pairs(Map.objects) do
 		-- death zone 
 		if object.name == "death" then
 			table.insert(DeathZones, {
@@ -99,6 +100,30 @@ function LevelState:update(dt)
     for _, value in ipairs(Entities) do
 		value:update(dt)
     end
+
+	-- Check the timers for all temporary platforms the player is standing on
+    for _, object in pairs(Map.objects) do
+		if object.name == "temp" then
+			local fixture = object.fixture
+			if fixture then
+				local userData = fixture:getUserData()
+				
+				-- only increment timers of platforms the player has stood on at least once.
+				-- doesnt matter if they get off it, timer doesnt stop
+				if userData and userData.temp and userData.standingOn then
+					print("stood on")
+					
+					userData.timer = userData.timer + dt
+
+					-- Check if the timer exceeds the threshold
+					if userData.timer >= 2 then  
+						fixture:setSensor(true) -- mark as non-collidable rather than remove entirely
+						print("Temporary platform broken!")
+					end
+				end
+			end
+		end
+	end
 end
 
 
@@ -107,11 +132,12 @@ function LevelState:draw()
     love.graphics.scale(ScalingFactor, ScalingFactor)
     love.graphics.draw(Bg)
 	--self.map:draw(0, 0, ScalingFactor, ScalingFactor)
-	self.map:drawLayer(self.map.layers["ground"])
+	Map:drawLayer(Map.layers["ground"])
 	if not self.player.moved then
-		self.map:drawLayer(self.map.layers["hidden"])
+		Map:drawLayer(Map.layers["hidden"])
 	end
 
+		Map:drawLayer(Map.layers["hidden"])
     -- Draw all entities
     for _, value in ipairs(Entities) do
         value:draw()
