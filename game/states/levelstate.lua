@@ -119,6 +119,7 @@ function LevelState:update(dt)
 					if userData.timer >= 2 then  
 						fixture:setSensor(true) -- mark as non-collidable rather than remove entirely
 						print("Temporary platform broken!")
+						self.player.grounded = false
 					end
 				end
 			end
