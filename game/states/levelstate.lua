@@ -43,7 +43,7 @@ function LevelState:enter()
 
             -- marking it as a temporary platform
             if object.name == "temp" then
-                fixture:setUserData({ temp = true, collidable = true, timer = 0, standingOn = false})
+                fixture:setUserData({ temp = true, collidable = true, timer = 0, standingOn = false, hasBeenStoodOn = false, broken = false})
 				object.fixture = fixture
 				print("created temp")
             end
@@ -110,16 +110,25 @@ function LevelState:update(dt)
 				
 				-- only increment timers of platforms the player has stood on at least once.
 				-- doesnt matter if they get off it, timer doesnt stop
-				if userData and userData.temp and userData.standingOn then
+				if userData and userData.temp and (userData.standingOn or userData.hasBeenStoodOn) then
 					print("stood on")
+					userData.hasBeenStoodOn = true
 					
 					userData.timer = userData.timer + dt
 
 					-- Check if the timer exceeds the threshold
-					if userData.timer >= 2 then  
+					if userData.timer >= .8 then  
 						fixture:setSensor(true) -- mark as non-collidable rather than remove entirely
+						
+						if userData.standingOn then
+							self.player.grounded = false
+						end
+
 						print("Temporary platform broken!")
-						self.player.grounded = false
+						if not userData.broken then
+							love.audio.newSource("assets/sfx/platformbreak.wav", "static"):play()
+							userData.broken = true	
+						end	
 					end
 				end
 			end
@@ -138,7 +147,6 @@ function LevelState:draw()
 		Map:drawLayer(Map.layers["hidden"])
 	end
 
-		Map:drawLayer(Map.layers["hidden"])
     -- Draw all entities
     for _, value in ipairs(Entities) do
         value:draw()

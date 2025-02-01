@@ -126,7 +126,6 @@ function Player:beginContact(a, b, collision)
         local object = otherFixture:getUserData()
         if object and object.temp then
             print("Player is on a temporary platform. It should break.")
-			-- Mark the platform as one the player is currently standing on
             object.standingOn = true  -- Mark that the player is standing on it
 			
 			-- for some reason with manually platform creation temp platform normals are inverted to regular
@@ -197,6 +196,8 @@ function Player:respawn()
 					userData.standingOn = false  -- Reset the standingOn state
 					userData.timer = 0           -- Reset the timer
 					userData.collidable = true   -- Ensure the platform is collidable
+					userData.hasBeenStoodOn = false
+					userData.broken = false
 
 					-- Set the fixture as non-sensor (collidable) if it was a sensor
 					object.fixture:setSensor(false)
@@ -217,11 +218,31 @@ function Player:land(collision)
 end
 
 function Player:endContact(a, b, collision)
-	if a == self.physics.fixture or b == self.physics.fixture then
-		if (self.currentGroundCollision == collision) then
-			self.grounded = false	
-		end
-	end
+    if a == self.physics.fixture or b == self.physics.fixture then
+        -- Check if the collision involves the player and a temporary platform
+        local tempObject
+        if a:getUserData() and a:getUserData().temp then
+            tempObject = a
+        elseif b:getUserData() and b:getUserData().temp then
+            tempObject = b
+        end
+
+        if tempObject then
+            -- Get the userData of the temporary platform
+            local userData = tempObject:getUserData()
+            
+            if userData and userData.temp then
+                -- Reset the standingOn state to false when the player leaves the platform
+                userData.standingOn = false
+                print("Player is no longer standing on the platform.")
+            end
+        end
+
+        -- Ensure grounded state is reset
+        if self.currentGroundCollision == collision then
+            self.grounded = false
+        end
+    end
 end
 
 function Player:jump(key)
