@@ -284,7 +284,7 @@ return {
         },
         {
           id = 54,
-          name = "",
+          name = "temp",
           type = "",
           shape = "rectangle",
           x = 56.0428,
@@ -294,13 +294,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
+            ["collidable"] = false,
             ["temp"] = true
           }
         },
         {
           id = 55,
-          name = "",
+          name = "temp",
           type = "",
           shape = "rectangle",
           x = 31.952,
@@ -310,13 +310,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
+            ["collidable"] = false,
             ["temp"] = true
           }
         },
         {
           id = 56,
-          name = "",
+          name = "temp",
           type = "",
           shape = "rectangle",
           x = 64.0033,
@@ -326,7 +326,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
+            ["collidable"] = false,
             ["temp"] = true
           }
         },

@@ -32,6 +32,21 @@ function LevelState:enter()
 				height = object.height
 			}
 		end
+
+		-- create temporary platforms manually - they don't have 'collidable' property in Tiled
+        if object.name == "temp" then
+            local body = love.physics.newBody(self.world, object.x + object.width / 2, object.y + object.height / 2, "static")  -- Create static body
+
+            -- Create a fixture for the object
+            local shape = love.physics.newRectangleShape(object.width, object.height)
+            local fixture = love.physics.newFixture(body, shape)
+
+            -- marking it as a temporary platform
+            if object.name == "temp" then
+                fixture:setUserData({ temp = true, collidable = true })  -- Set custom user data
+				print("created temp")
+            end
+        end	
 	end
 
 	self.player = Player:new(
