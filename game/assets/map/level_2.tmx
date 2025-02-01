@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="18" tilewidth="8" tileheight="8" infinite="0" nextlayerid="6" nextobjectid="30">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="18" tilewidth="8" tileheight="8" infinite="0" nextlayerid="6" nextobjectid="31">
  <editorsettings>
   <export target="level_2.lua" format="lua"/>
  </editorsettings>
@@ -38,8 +38,8 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,26,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,26,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -58,7 +58,7 @@
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="29" x="71.9574" y="104.354" width="15.9669" height="4.32566">
+  <object id="29" x="71.8259" y="103.828" width="15.9669" height="4.32566">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>
@@ -93,7 +93,12 @@
   <properties>
    <property name="collidable" type="bool" value="false"/>
   </properties>
-  <object id="18" name="death" x="71.8819" y="100.587" width="16.1162" height="3.85525">
+  <object id="18" name="death" x="72.4077" y="80.0811" width="6.12631" height="15.5539">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="30" name="death" x="72.5182" y="99.2856" width="16.1162" height="3.85525">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
