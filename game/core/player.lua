@@ -151,6 +151,7 @@ function Player:die()
 	if not self.isDying then
 		self.isDying = true
 		self.animation:resume()
+		love.audio.newSource("assets/sfx/hitHurt.wav", "static"):play()
 	end
 end
 
@@ -188,6 +189,7 @@ function Player:jump(key)
 	if (key == "w" or key == "up") and self.grounded then
 		self.yVel = self.jumpFactor
 		self.grounded = false
+		love.audio.newSource("assets/sfx/playerjump.wav", "static"):play()
 	end
 end
 

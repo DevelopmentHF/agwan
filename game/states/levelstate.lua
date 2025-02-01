@@ -107,5 +107,5 @@ function LevelState:draw()
 end
 
 function LevelState:exit()
-
+	love.audio.newSource("assets/sfx/complete.wav", "static"):play()
 end

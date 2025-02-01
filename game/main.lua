@@ -18,10 +18,10 @@ function love.load()
 	love.mouse.setCursor(cursor)
 
 	-- music
-	local music = love.audio.newSource("assets/sfx/HerdingPidgeons.mp3", "stream")
+	local music = love.audio.newSource("assets/sfx/music.mp3", "stream")
 	music:play()
 	music:setLooping(true)
-	music:setVolume(0.0) -- MUSIC TURNED OFF FOR NOW
+	music:setVolume(0.4) 
 
     Entities = {}
     UIElements = {}
